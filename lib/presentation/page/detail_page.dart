@@ -41,38 +41,43 @@ class DetailPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Text(
-                      textAlign: TextAlign.justify,
-                      catBreedEntity.description,
-                      style: const TextStyle(
-                        fontSize: 16,
-                      ),
+              child: Scrollbar(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 10, left: 10),
+                    child: Column(
+                      children: [
+                        Text(
+                          textAlign: TextAlign.justify,
+                          catBreedEntity.description,
+                          style: const TextStyle(
+                            fontSize: 16,
+                          ),
+                        ),
+                        const SizedBox(height: spaceBetween),
+                        DetailRowWidget(
+                          title: 'Country of Origin: ',
+                          value: catBreedEntity.origin,
+                        ),
+                        const SizedBox(height: spaceBetween),
+                        DetailRowWidget(
+                          title: 'Life Span: ',
+                          value: "${catBreedEntity.lifeSpan} years",
+                        ),
+                        const SizedBox(height: spaceBetween),
+                        AttributeRowWidget(
+                          attribute: 'Intelligence: ',
+                          value: catBreedEntity.intelligence,
+                        ),
+                        const SizedBox(height: spaceBetween),
+                        AttributeRowWidget(
+                          attribute: 'Adaptability: ',
+                          value: catBreedEntity.adaptability,
+                        ),
+                        const SizedBox(height: 30),
+                      ],
                     ),
-                    const SizedBox(height: spaceBetween),
-                    DetailRowWidget(
-                      title: 'Country of Origin: ',
-                      value: catBreedEntity.origin,
-                    ),
-                    const SizedBox(height: spaceBetween),
-                    DetailRowWidget(
-                      title: 'Life Span: ',
-                      value: "${catBreedEntity.lifeSpan} years",
-                    ),
-                    const SizedBox(height: spaceBetween),
-                    AttributeRowWidget(
-                      attribute: 'Intelligence: ',
-                      value: catBreedEntity.intelligence,
-                    ),
-                    const SizedBox(height: spaceBetween),
-                    AttributeRowWidget(
-                      attribute: 'Adaptability: ',
-                      value: catBreedEntity.adaptability,
-                    ),
-                    const SizedBox(height: 30),
-                  ],
+                  ),
                 ),
               ),
             ),
